@@ -1,0 +1,8 @@
+alimentos
+carne
+pescado
+pasta
+arroz
+verduras
+leche
+cereales

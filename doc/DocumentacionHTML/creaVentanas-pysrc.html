@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>creaVentanas</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Categorizacion de Informacion en Redes Sociales. Aplicacion a la Ciberseguridad.</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;creaVentanas
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="creaVentanas-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="creaVentanas-module.html">Module creaVentanas</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/env python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># coding=utf-8</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">    Este m&#243;dulo contiene la clase B{CreaVentanas}.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">    @author: Rub&#233;n Jim&#233;nez Ortega.</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">    @version: 1.0</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">    @copyright: Copyright (C) 2017 by Rub&#233;n Jim&#233;nez Ortega.</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">PyQt4</tt> <tt class="py-keyword">import</tt> <tt class="py-name">QtCore</tt><tt class="py-op">,</tt> <tt class="py-name">QtGui</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">PyQt4</tt><tt class="py-op">.</tt><tt class="py-name">QtCore</tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">PyQt4</tt><tt class="py-op">.</tt><tt class="py-name">QtGui</tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module error=error-module.html"><a title="error" class="py-name" href="#" onclick="return doclink('link-0', 'error', 'link-0');">error</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Class error.Error=error.Error-class.html"><a title="error.Error" class="py-name" href="#" onclick="return doclink('link-1', 'Error', 'link-1');">Error</a></tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Module alertaUsuario=alertaUsuario-module.html"><a title="alertaUsuario" class="py-name" href="#" onclick="return doclink('link-2', 'alertaUsuario', 'link-2');">alertaUsuario</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class alertaUsuario.AlertaUsuario=alertaUsuario.AlertaUsuario-class.html"><a title="alertaUsuario.AlertaUsuario" class="py-name" href="#" onclick="return doclink('link-3', 'AlertaUsuario', 'link-3');">AlertaUsuario</a></tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Module categoria=categoria-module.html"><a title="categoria" class="py-name" href="#" onclick="return doclink('link-4', 'categoria', 'link-4');">categoria</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name" targets="Module informacion=informacion-module.html"><a title="informacion" class="py-name" href="#" onclick="return doclink('link-5', 'informacion', 'link-5');">informacion</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-6" class="py-name" targets="Module manejoGrafo=manejoGrafo-module.html"><a title="manejoGrafo" class="py-name" href="#" onclick="return doclink('link-6', 'manejoGrafo', 'link-6');">manejoGrafo</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-7" class="py-name" targets="Module finGrafo=finGrafo-module.html"><a title="finGrafo" class="py-name" href="#" onclick="return doclink('link-7', 'finGrafo', 'link-7');">finGrafo</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="CreaVentanas"></a><div id="CreaVentanas-def"><a name="L24"></a><tt class="py-lineno"> 24</tt> <a class="py-toggle" href="#" id="CreaVentanas-toggle" onclick="return toggle('CreaVentanas');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="creaVentanas.CreaVentanas-class.html">CreaVentanas</a><tt class="py-op">:</tt> </tt>
+</div><div id="CreaVentanas-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="CreaVentanas-expanded"><a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">        Clase para crear la mayor&#237;a de las ventanas de las que dispone la aplicaci&#243;n.</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-comment">#Funci&#243;n para centrar cualquier ventana, en una pantalla, independientemente del tama&#241;o de la misma.</tt> </tt>
+<a name="CreaVentanas.center"></a><div id="CreaVentanas.center-def"><a name="L31"></a><tt class="py-lineno"> 31</tt> <a class="py-toggle" href="#" id="CreaVentanas.center-toggle" onclick="return toggle('CreaVentanas.center');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="creaVentanas.CreaVentanas-class.html#center">center</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">qtgui</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CreaVentanas.center-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CreaVentanas.center-expanded"><a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">            Funci&#243;n para centrar cualquier ventana en una pantalla, independientemente del tama&#241;o de la misma.</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">            @param qtgui: Ventana que queremos centrar.</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-name">frameGm</tt> <tt class="py-op">=</tt> <tt class="py-name">qtgui</tt><tt class="py-op">.</tt><tt class="py-name">frameGeometry</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-name">pantalla</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QApplication</tt><tt class="py-op">.</tt><tt class="py-name">desktop</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">screenNumber</tt><tt class="py-op">(</tt><tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QApplication</tt><tt class="py-op">.</tt><tt class="py-name">desktop</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">cursor</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">pos</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-name">centerPoint</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QApplication</tt><tt class="py-op">.</tt><tt class="py-name">desktop</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">screenGeometry</tt><tt class="py-op">(</tt><tt class="py-name">pantalla</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method categoria.Categoria.center()=categoria.Categoria-class.html#center,Method creaVentanas.CreaVentanas.center()=creaVentanas.CreaVentanas-class.html#center,Method inicio.VentanaInicio.center()=inicio.VentanaInicio-class.html#center"><a title="categoria.Categoria.center
+creaVentanas.CreaVentanas.center
+inicio.VentanaInicio.center" class="py-name" href="#" onclick="return doclink('link-8', 'center', 'link-8');">center</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-name">frameGm</tt><tt class="py-op">.</tt><tt class="py-name">moveCenter</tt><tt class="py-op">(</tt><tt class="py-name">centerPoint</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-name">qtgui</tt><tt class="py-op">.</tt><tt class="py-name">move</tt><tt class="py-op">(</tt><tt class="py-name">frameGm</tt><tt class="py-op">.</tt><tt class="py-name">topLeft</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"> </tt>
+<a name="CreaVentanas.crearVentanaInformacion"></a><div id="CreaVentanas.crearVentanaInformacion-def"><a name="L43"></a><tt class="py-lineno"> 43</tt> <a class="py-toggle" href="#" id="CreaVentanas.crearVentanaInformacion-toggle" onclick="return toggle('CreaVentanas.crearVentanaInformacion');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="creaVentanas.CreaVentanas-class.html#crearVentanaInformacion">crearVentanaInformacion</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">nombreUsuario</tt><tt class="py-op">,</tt> <tt class="py-param">usu</tt><tt class="py-op">,</tt> <tt class="py-param">ide</tt><tt class="py-op">,</tt> <tt class="py-param">descripcion</tt><tt class="py-op">,</tt> <tt class="py-param">localizacion</tt><tt class="py-op">,</tt> <tt class="py-param">nSeguidores</tt><tt class="py-op">,</tt> <tt class="py-param">nSeguidos</tt><tt class="py-op">,</tt> <tt class="py-param">nTweets</tt><tt class="py-op">,</tt> <tt class="py-param">nFavoritos</tt><tt class="py-op">,</tt> <tt class="py-param">fotoUsuario</tt><tt class="py-op">,</tt> <tt class="py-param">comida</tt><tt class="py-op">,</tt> <tt class="py-param">animales</tt><tt class="py-op">,</tt> <tt class="py-param">ropa</tt><tt class="py-op">,</tt> <tt class="py-param">terrorismo</tt><tt class="py-op">,</tt> <tt class="py-param">sinCalificar</tt><tt class="py-op">,</tt> <tt class="py-param">privacidad</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CreaVentanas.crearVentanaInformacion-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CreaVentanas.crearVentanaInformacion-expanded"><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">            Crea la ventana que contiene la informaci&#243;n de un usuario.</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">            @param nombreUsuario: contiene el nombre completo del usuario.</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">            @type nombreUsuario: str</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">            @param usu: contiene el nombre de usuario.</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">            @type usu: str</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">            @param ide: Contiene el identificador del usuario.</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">            @type ide: int</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">            @param descripcion: Contiene la descripci&#243;n del usuario.</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">            @type descripcion: str</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">            @param localizacion: Contiene la localizaci&#243;n del usuario.</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">            @type localizacion: str</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">            @param nSeguidores: Contiene el n&#250;mero de seguidores del usuario.</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">            @type nSeguidores: int</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">            @param nSeguidos: Contiene el n&#250;mero de seguidos del usuario.</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">            @type nSeguidos: int</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">            @param nTweets: Contiene el n&#250;mero de tweets del usuario.</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">            @type nTweets: int</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">            @param nFavoritos: Contiene el n&#250;mero de tweets favoritos del usuario.</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring">            @type nFavoritos: int</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">            @param fotoUsuario: Contiene la direcci&#243;n de la foto de usuario.</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">            @type fotoUsuario: str</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">            @param comida: Contiene el contador de la categor&#237;a comida.</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring">            @type comida: int</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">            @param animales: Contiene el contador de la categor&#237;a animales.</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">            @type animales: int</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">            @param ropa: Contiene el contador de la categor&#237;a ropa.</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">            @type ropa: int</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">            @param terrorismo: Contiene el contador de la categor&#237;a terrorismo.</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">            @type terrorismo: int</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">            @param sinCalificar: Contiene el contador de la categor&#237;a sinCalificar.</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">            @type sinCalificar: int</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">            @param privacidad: Contiene si el usuario es privado o no.</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">            @type privacidad: boolean</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaInfo</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QWidget</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="categoria.Categoria.center
+creaVentanas.CreaVentanas.center
+inicio.VentanaInicio.center" class="py-name" href="#" onclick="return doclink('link-9', 'center', 'link-8');">center</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaInfo</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">uiInfo</tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name" targets="Class informacion.Informacion=informacion.Informacion-class.html"><a title="informacion.Informacion" class="py-name" href="#" onclick="return doclink('link-10', 'Informacion', 'link-10');">Informacion</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">uiInfo</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method informacion.Informacion.setupUi()=informacion.Informacion-class.html#setupUi,Method manejoGrafo.ManejoGrafo.setupUi()=manejoGrafo.ManejoGrafo-class.html#setupUi"><a title="informacion.Informacion.setupUi
+manejoGrafo.ManejoGrafo.setupUi" class="py-name" href="#" onclick="return doclink('link-11', 'setupUi', 'link-11');">setupUi</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaInfo</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">uiInfo</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method informacion.Informacion.retranslateUi()=informacion.Informacion-class.html#retranslateUi,Method manejoGrafo.ManejoGrafo.retranslateUi()=manejoGrafo.ManejoGrafo-class.html#retranslateUi"><a title="informacion.Informacion.retranslateUi
+manejoGrafo.ManejoGrafo.retranslateUi" class="py-name" href="#" onclick="return doclink('link-12', 'retranslateUi', 'link-12');">retranslateUi</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaInfo</tt><tt class="py-op">,</tt> <tt class="py-name">nombreUsuario</tt><tt class="py-op">,</tt> <tt class="py-name">usu</tt><tt class="py-op">,</tt> <tt class="py-name">ide</tt><tt class="py-op">,</tt> <tt class="py-name">descripcion</tt><tt class="py-op">,</tt> <tt class="py-name">localizacion</tt><tt class="py-op">,</tt> <tt class="py-name">nSeguidores</tt><tt class="py-op">,</tt> <tt class="py-name">nSeguidos</tt><tt class="py-op">,</tt> <tt class="py-name">nTweets</tt><tt class="py-op">,</tt> <tt class="py-name">nFavoritos</tt><tt class="py-op">,</tt> <tt class="py-name">fotoUsuario</tt><tt class="py-op">,</tt> <tt class="py-name">comida</tt><tt class="py-op">,</tt> <tt class="py-name">animales</tt><tt class="py-op">,</tt> <tt class="py-name">ropa</tt><tt class="py-op">,</tt> <tt class="py-name">terrorismo</tt><tt class="py-op">,</tt> <tt class="py-name">sinCalificar</tt><tt class="py-op">,</tt> <tt class="py-name">privacidad</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaInfo</tt><tt class="py-op">.</tt><tt class="py-name">show</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"> </tt>
+<a name="CreaVentanas.crearVentanaManejoGrafica"></a><div id="CreaVentanas.crearVentanaManejoGrafica-def"><a name="L87"></a><tt class="py-lineno"> 87</tt> <a class="py-toggle" href="#" id="CreaVentanas.crearVentanaManejoGrafica-toggle" onclick="return toggle('CreaVentanas.crearVentanaManejoGrafica');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="creaVentanas.CreaVentanas-class.html#crearVentanaManejoGrafica">crearVentanaManejoGrafica</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CreaVentanas.crearVentanaManejoGrafica-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CreaVentanas.crearVentanaManejoGrafica-expanded"><a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring">            Crea la ventana que maneja el Grafo.</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaManejo</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QWidget</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">uiManejo</tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name" targets="Class manejoGrafo.ManejoGrafo=manejoGrafo.ManejoGrafo-class.html"><a title="manejoGrafo.ManejoGrafo" class="py-name" href="#" onclick="return doclink('link-13', 'ManejoGrafo', 'link-13');">ManejoGrafo</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">uiManejo</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="informacion.Informacion.setupUi
+manejoGrafo.ManejoGrafo.setupUi" class="py-name" href="#" onclick="return doclink('link-14', 'setupUi', 'link-11');">setupUi</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaManejo</tt><tt class="py-op">)</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">uiManejo</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="informacion.Informacion.retranslateUi
+manejoGrafo.ManejoGrafo.retranslateUi" class="py-name" href="#" onclick="return doclink('link-15', 'retranslateUi', 'link-12');">retranslateUi</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaManejo</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaManejo</tt><tt class="py-op">.</tt><tt class="py-name">show</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"> </tt>
+<a name="CreaVentanas.crearVentanaCategoria"></a><div id="CreaVentanas.crearVentanaCategoria-def"><a name="L97"></a><tt class="py-lineno"> 97</tt> <a class="py-toggle" href="#" id="CreaVentanas.crearVentanaCategoria-toggle" onclick="return toggle('CreaVentanas.crearVentanaCategoria');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="creaVentanas.CreaVentanas-class.html#crearVentanaCategoria">crearVentanaCategoria</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">titulo</tt><tt class="py-op">,</tt> <tt class="py-param">cat</tt><tt class="py-op">,</tt> <tt class="py-param">contador</tt><tt class="py-op">,</tt> <tt class="py-param">tweets</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CreaVentanas.crearVentanaCategoria-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CreaVentanas.crearVentanaCategoria-expanded"><a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">            Crea la ventana que contiene los tweets de una categor&#237;a.</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring">            @param titulo: Variable para cambiar el t&#237;tulo de la nueva ventana.</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">            @type titulo: str</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">            @param cat: Variable que almacena la categor&#237;a que mostramos.</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring">            @type cat: str</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring">            @param contador: N&#250;mero de tweets de la categor&#237;a que estudiamos.</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">            @type contador: int</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">            @param tweets: Tweets del usuario y de la categor&#237;a elegida almacenados en una lista para poder mostrarlos.</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">            @type tweets: list</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">dialog</tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name" targets="Class categoria.Categoria=categoria.Categoria-class.html"><a title="categoria.Categoria" class="py-name" href="#" onclick="return doclink('link-16', 'Categoria', 'link-16');">Categoria</a></tt><tt class="py-op">(</tt><tt class="py-name">titulo</tt><tt class="py-op">,</tt> <tt class="py-name">cat</tt><tt class="py-op">,</tt> <tt id="link-17" class="py-name" targets="Variable grafo.contador=grafo-module.html#contador"><a title="grafo.contador" class="py-name" href="#" onclick="return doclink('link-17', 'contador', 'link-17');">contador</a></tt><tt class="py-op">,</tt> <tt class="py-name">tweets</tt><tt class="py-op">)</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">dialog</tt><tt class="py-op">.</tt><tt class="py-name">show</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"> </tt>
+<a name="CreaVentanas.crearVentanaError"></a><div id="CreaVentanas.crearVentanaError-def"><a name="L113"></a><tt class="py-lineno">113</tt> <a class="py-toggle" href="#" id="CreaVentanas.crearVentanaError-toggle" onclick="return toggle('CreaVentanas.crearVentanaError');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="creaVentanas.CreaVentanas-class.html#crearVentanaError">crearVentanaError</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">error</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CreaVentanas.crearVentanaError-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CreaVentanas.crearVentanaError-expanded"><a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">            Crea la ventana que advierte de un error.</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">            @param error: Error que se produce para mostrarlo en m&#225;s detalles.</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-docstring">            @type error: str</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaError</tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name"><a title="error.Error" class="py-name" href="#" onclick="return doclink('link-18', 'Error', 'link-1');">Error</a></tt><tt class="py-op">(</tt><tt id="link-19" class="py-name"><a title="error" class="py-name" href="#" onclick="return doclink('link-19', 'error', 'link-0');">error</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaError</tt><tt class="py-op">.</tt><tt class="py-name">show</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"> </tt>
+<a name="CreaVentanas.crearVentanaAlertaUsuario"></a><div id="CreaVentanas.crearVentanaAlertaUsuario-def"><a name="L123"></a><tt class="py-lineno">123</tt> <a class="py-toggle" href="#" id="CreaVentanas.crearVentanaAlertaUsuario-toggle" onclick="return toggle('CreaVentanas.crearVentanaAlertaUsuario');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="creaVentanas.CreaVentanas-class.html#crearVentanaAlertaUsuario">crearVentanaAlertaUsuario</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CreaVentanas.crearVentanaAlertaUsuario-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CreaVentanas.crearVentanaAlertaUsuario-expanded"><a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">            Crea la ventana para mostrar que el nodo Ra&#237;z a sido cambiado con &#233;xito.</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaAlerta</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="alertaUsuario.AlertaUsuario" class="py-name" href="#" onclick="return doclink('link-20', 'AlertaUsuario', 'link-3');">AlertaUsuario</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaAlerta</tt><tt class="py-op">.</tt><tt class="py-name">show</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"> </tt>
+<a name="CreaVentanas.crearVentanaFinGrafo"></a><div id="CreaVentanas.crearVentanaFinGrafo-def"><a name="L130"></a><tt class="py-lineno">130</tt> <a class="py-toggle" href="#" id="CreaVentanas.crearVentanaFinGrafo-toggle" onclick="return toggle('CreaVentanas.crearVentanaFinGrafo');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="creaVentanas.CreaVentanas-class.html#crearVentanaFinGrafo">crearVentanaFinGrafo</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CreaVentanas.crearVentanaFinGrafo-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CreaVentanas.crearVentanaFinGrafo-expanded"><a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">            Crea la ventana para mostrar que el grafo a finalizado con &#233;xito.</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaFinGrafo</tt> <tt class="py-op">=</tt> <tt id="link-21" class="py-name" targets="Class finGrafo.FinGrafo=finGrafo.FinGrafo-class.html"><a title="finGrafo.FinGrafo" class="py-name" href="#" onclick="return doclink('link-21', 'FinGrafo', 'link-21');">FinGrafo</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ventanaFinGrafo</tt><tt class="py-op">.</tt><tt class="py-name">show</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Categorizacion de Informacion en Redes Sociales. Aplicacion a la Ciberseguridad.</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Jun 10 22:41:36 2017
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
