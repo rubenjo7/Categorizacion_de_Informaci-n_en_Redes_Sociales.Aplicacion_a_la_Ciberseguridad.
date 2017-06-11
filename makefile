@@ -19,6 +19,7 @@ borrar:
 					
 #CREAMOS LOS DIRECTORIOS TWEETS Y SEGUIDOS, POR SI ALGUNA VEZ LOS BORRAMOS
 crearDirectorios:
+					mkdir datos
 					cd datos && mkdir tweets/
 					cd datos && mkdir seguidos/
 					
