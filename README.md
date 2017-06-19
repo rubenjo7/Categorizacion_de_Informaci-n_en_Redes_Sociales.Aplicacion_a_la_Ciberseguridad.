@@ -46,21 +46,21 @@ La aplicación requiere para su uso e instalación las siguientes dependencias:
 
 ### A.2.2 Instalación automática
 
-La instalación automática de la aplicación es bien sencilla, siendo necesario únicamente ejecutar el comando “make instalar” desde el directorio raíz de nuestra aplicación.
+La instalación automática de la aplicación es bien sencilla, siendo necesario únicamente ejecutar el comando “*make instalar*” desde el directorio raíz de nuestra aplicación.
 
 ### A.2.3 Instalación manual
 
 Para instalar o hacer funcionar nuestra aplicación hay que seguir el siguiente proceso, situándonos en el directorio raíz de nuestra aplicación:
 
-- Instalar python2.7, python-pip, python-dev, build-essential y python-qt4 con el siguiente comando, desde terminal:
+- Instalar **python2.7**, **python-pip**, **python-dev**, **build-essential** y **python-qt4** con el siguiente comando, desde terminal:
 	
 		sudo apt-get install python2.7 python-pip python-dev build-essential python-qt4
 
-- Instalar dependencias (en estas dependencias vamos a actualizar pip y de paso instalamos epydoc).
+- Instalar dependencias (en estas dependencias vamos a actualizar **pip** y de paso instalamos **epydoc**).
 	
 		sudo pip install -r dependencias/requirements.txt
 
-- Instalamos bibliotecas necesarias con pip:
+- Instalamos bibliotecas necesarias con **pip**:
 
 		sudo pip install tweepy networkx matplotlib
 
@@ -83,11 +83,60 @@ Debemos rellenar los campos que nos piden obligatoriamente para poder crear la a
 
 ![Con titulo](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/creacionApp.png "Figura A.1 Creación de Aplicación para obtener las credenciales de Twitter")
 
-Tras este paso, aparecerá una ventana con información acerca de nuestra aplicación generada. El siguiente paso será irnos al apartado “Keys and Access Tokens”, para generar las llaves y los tokens de acceso necesarios para poder usar nuestra aplicación.
+Tras este paso, aparecerá una ventana con información acerca de nuestra aplicación generada. El siguiente paso será irnos al apartado “*Keys and Access Tokens*”, para generar las llaves y los *tokens* de acceso necesarios para poder usar nuestra aplicación.
 
-Fijándonos en la Figura A.2, una vez entrado a esta parte del menú podemos observar que ya disponemos de las llaves que necesitamos. Ahora tendremos que generar los tokens de acceso. Para ello tendremos que dirigirnos a la parte baja de la ventana y seleccionar “Create my Access token”. Las llaves han sido ocultadas por tema de seguridad.
+Fijándonos en la Figura A.2, una vez entrado a esta parte del menú podemos observar que ya disponemos de las llaves que necesitamos. Ahora tendremos que generar los *tokens* de acceso. Para ello tendremos que dirigirnos a la parte baja de la ventana y seleccionar “*Create my Access token*”. Las llaves han sido ocultadas por tema de seguridad.
 
-![https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/obtenerCredenciales.PNG](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/obtenerCredenciales.PNG "Figura A.1 Creación de Aplicación para obtener las credenciales de Twitter")
+![https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/obtenerCredenciales.PNG](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/obtenerCredenciales.PNG "Figura A.2 Obtención de credenciales")
 
-Tras pulsar el botón señalado de la Figura A.2, se generan automáticamente nuestros tokens y se muestran en la misma pantalla, como puede observarse en la Figura A.3. De nuevo se han ocultado por temas de seguridad.
+Tras pulsar el botón señalado de la Figura A.2, se generan automáticamente nuestros *tokens* y se muestran en la misma pantalla, como puede observarse en la Figura A.3. De nuevo se han ocultado por temas de seguridad.
 
+![https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/accessToken.png](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/accessToken.png "Figura A.3 Access Tokens generados")
+
+Ya tenemos las credenciales que necesitamos para iniciar nuestra aplicación. El siguiente paso será alojarlas en su lugar correspondiente. Para ello nos situamos en el directorio raíz de nuestra aplicación (ya en local) e irnos al directorio “*variables*”.
+
+Como puede observarse en la Figura A.4, hay cuatro archivos creados, todos ellos en blanco, con nombres descriptivos de lo que queremos insertar en ellos. Así que empezaremos copiando el **Access Token** que nos da Twitter y lo copiamos en el archivo “access_token.txt”, el **Access Token Secret** lo copiamos en “access_token_secret.txt”, el **Consumer Key** en “consumer_key.txt” y por último el  **Consumer Secret **en “consumer_secret.txt”. Quedando el directorio “variables” con un aspecto similar al de la Figura A.4.
+
+![https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/variables.png](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/variables.png "Figura A.4 Contenido del directorio “variables”")
+
+### A.3.2 Ejemplo de ejecución
+
+Para que sea más entendible y rápido se muestra un proceso de ejecución intentando mostrar con capturas de pantalla los pasos realizados durante este proceso.
+
+#### Paso previo 
+
+Lo primero es descargar la aplicación de [nuestro repositorio de GitHub](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad). Una vez descargado, tendremos que ejecutar el comando “*make crearDirectorios*” para que se genere el directorio **datos** y sus respectivos hijos (**tweets** y **seguidos**). Ahora sí que comenzamos con la ejecución de nuestra aplicación.
+
+#### Paso 1
+
+Este paso consiste en colocarnos en el directorio raíz de nuestra aplicación y ejecutar el comando “*make ejecutar*”. Tras esto, aparecerá la ventana de inicio de nuestra aplicación como se indica en la *Figura A.5.*
+
+![https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/inicio.png](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/inicio.png "Figura A.5 Ejecución aplicación. Paso 1")
+
+#### Paso 2
+
+El siguiente paso será probar el correcto funcionamiento de la comprobación de errores. Insertamos un usuario privado o no existente y nos devolvería algunas de las siguientes ventanas, en función del error (*Figura A.6 y Figura A.7*)
+
+![https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/error1.png](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/error1.png "Figura A.6 Ejecución aplicación. Paso 2 (I)")
+
+![https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/error2.png](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/error2.png "Figura A.7 Ejecución aplicación. Paso 2 (II)")
+
+#### Paso 3
+
+Tras esto, insertamos el usuario que se muestra en la imagen del Paso 1, que es público y existente y pasaríamos a tener la ventana que maneja nuestro grafo, siendo el usuario insertado en el Paso 1, el nodo raíz. Para comenzar, seleccionaremos solamente una categoría, como puede ser “*Terrorismo*”, quedándonos algo como la *Figura A.8*.
+
+![https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/ManejoGrafoTerrorismo.png](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/ManejoGrafoTerrorismo.png "Figura A.8 Ejecución aplicación. Paso 3")
+
+####  Paso 4
+
+Ahora procederemos a iniciar nuestro grafo pulsando sobre el botón “Iniciar” y esperaremos a que finalice dicha ejecución, obteniendo como resultado la *Figura A.9*.
+
+![https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/graf5.png](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/graf5.png "Figura A.9 Ejecución aplicación. Paso 4 (I)")
+
+Ampliaremos un poco este grafo para que se pueda ver con más claridad cómo nuestro nodo raíz es el usuario insertado al comienzo, independientemente de la categoría. Véase la *Figura A.10*.
+
+![https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/graf6.png](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/graf6.png "Figura A.10 Ejecución aplicación. Paso 4 (II)")
+
+A la vez que se va generando nuestro grafo, en la terminal va apareciendo información relacionada con la creación de este: los nodos de segundo nivel que quedan por estudiar, los usuarios que han sido estudiados y los que se incluyen en el mismo, por pertenecer a dicha categoría, entre otros. Véase la* Figura A.11*.
+
+![https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/terminalAlgunasCategorias.png](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/terminalAlgunasCategorias.png "Figura A.11 Ejecución aplicación. Paso 4 (III)")
