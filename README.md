@@ -3,18 +3,15 @@
 - Trabajo Fin de Grado.
 - Realizado por: Rubén Jiménez Ortega.
 
-## Breve resumen: 
-
-  Ante el alcance actual de las RRSS, a través de este trabajo se plantea el análisis de las interrelaciones y actividades (públicas) de los usuarios en estos entornos para, en un momento dado, poder generar informes sobre, por ejemplo, perfiles de consumo y ocio; e incluso potenciales riesgos de seguridad relativos a actividades terroristas, hacktivismo, etc. Para ello, se pretende el diseño, desarrollo y evaluación de una herramienta software que monitorice las RRSS y extraiga, clasifique y visualice la información desde un punto de vista semántico.
-
 <br>
 <br>
 
 ## Apéndice A
-- - -
+
 # Manual de Usuario
-- - -
+
 <br>
+
 ## A.1 Breve explicación de la aplicación
 
 El objetivo del siguiente manual es presentar una guía completa para el uso e instalación de nuestra aplicación.
@@ -83,6 +80,8 @@ El primer paso es tener una cuenta de usuario de [Twitter](https://twitter.com/s
 Una vez que tenemos la cuenta de usuario de Twitter debemos registrarnos (con la cuenta de Twitter) en lo que se conoce como [Twitter Apps](https://apps.twitter.com/). Una vez entramos en la plataforma debemos crear una nueva aplicación (en la web: “Create New App”).
 
 Debemos rellenar los campos que nos piden obligatoriamente para poder crear la aplicación, quedándonos algo como la imagen de la Figura A.1.
+
+![Con titulo](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/creacionApp.png "probando")
 
 Tras este paso, aparecerá una ventana con información acerca de nuestra aplicación generada. El siguiente paso será irnos al apartado “Keys and Access Tokens”, para generar las llaves y los tokens de acceso necesarios para poder usar nuestra aplicación.
 
