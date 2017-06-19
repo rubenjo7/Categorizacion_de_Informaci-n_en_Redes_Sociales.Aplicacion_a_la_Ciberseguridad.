@@ -81,11 +81,13 @@ Una vez que tenemos la cuenta de usuario de Twitter debemos registrarnos (con la
 
 Debemos rellenar los campos que nos piden obligatoriamente para poder crear la aplicación, quedándonos algo como la imagen de la Figura A.1.
 
-![Con titulo](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/creacionApp.png "probando")
+![Con titulo](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/creacionApp.png "Figura A.1 Creación de Aplicación para obtener las credenciales de Twitter")
 
 Tras este paso, aparecerá una ventana con información acerca de nuestra aplicación generada. El siguiente paso será irnos al apartado “Keys and Access Tokens”, para generar las llaves y los tokens de acceso necesarios para poder usar nuestra aplicación.
 
 Fijándonos en la Figura A.2, una vez entrado a esta parte del menú podemos observar que ya disponemos de las llaves que necesitamos. Ahora tendremos que generar los tokens de acceso. Para ello tendremos que dirigirnos a la parte baja de la ventana y seleccionar “Create my Access token”. Las llaves han sido ocultadas por tema de seguridad.
+
+![https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/obtenerCredenciales.PNG](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/Documentacion/Apendices/obtenerCredenciales.PNG "Figura A.1 Creación de Aplicación para obtener las credenciales de Twitter")
 
 Tras pulsar el botón señalado de la Figura A.2, se generan automáticamente nuestros tokens y se muestran en la misma pantalla, como puede observarse en la Figura A.3. De nuevo se han ocultado por temas de seguridad.
 
