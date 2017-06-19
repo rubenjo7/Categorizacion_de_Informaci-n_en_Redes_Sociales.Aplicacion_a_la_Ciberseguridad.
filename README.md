@@ -262,21 +262,400 @@ El siguiente paso será comparar todos los tweets del usuario estudiado para añ
 
 Lo siguiente será conocer cuántos tweets quedan sin clasificar, quitando los tweets que se han almacenado en cada una de las distintas categorías, para lo cual se procede como se indica en el Cuadro de código A.3.
 
-	contadorSinCalificar = nTweets - contadorAnimales - contadorRopa - contadorTerrorismo – contadorComida **– contadorDeporte**
+	contadorSinCalificar = nTweets - contadorAnimales - contadorRopa - contadorTerrorismo – contadorComida – contadorDeporte
 	…
-	**conjunto7** = set(tweetsDeporte)
+	conjunto7 = set(tweetsDeporte)
 	…
 	#Conjunto 6 pertenece a los tweets sin calificar, conjunto1 a todos los tweets que tiene el usuario y los demás a las distintas categorías
 	…
-	conjunto6 = conjunto1 - conjunto2 - conjunto3 - conjunto4 - conjunto5 **- conjunto7**
+	conjunto6 = conjunto1 - conjunto2 - conjunto3 - conjunto4 - conjunto5 - conjunto7
 
 
 El último paso será darle utilidad a la información sacada por esta función. Para ello tendremos guardar la información en sus respectivos archivos usando las funciones adecuadas, como se indica en el Cuadro de código A.4.
 
-	self.escribirDatosUsuario(usu, contadorComida, contadorRopa, contadorAnimales, contadorTerrorismo, **contadorDeporte,** contadorSinCalificar)
+	self.escribirDatosUsuario(usu, contadorComida, contadorRopa, contadorAnimales, contadorTerrorismo, contadorDeporte, contadorSinCalificar)
 	
-	self.escribirTweetsClasificados(usu, tweetsComida, tweetsRopa, tweetsAnimales, tweetsTerrorismo, **tweetsDeporte,** tweetsSc)
+	self.escribirTweetsClasificados(usu, tweetsComida, tweetsRopa, tweetsAnimales, tweetsTerrorismo, tweetsDeporte, tweetsSc)
 
 
 Aunque no se ha puesto la función completa, porque es bastante densa, se intuye con lo explicado aquí, las tabulaciones a seguir en cada paso, es una de las grandes ventajas de Python.
 
+#### Escribir archivo con los principales datos del usuario
+
+Lo primero que habría que cambiar será el número de parámetros pasados a esta función añadiendo la nueva. Esta función se encuentra en la clase **FuncionesTwitter**:
+
+	def escribirDatosUsuario(self, usuario, contadorComida, contadorRopa, contadorAnimales, contadorTerrorismo, contadorDeporte, contadorSinCalificar):
+
+Ahora añadimos también este contador a la lista que después se añadirá al nuevo archivo:
+
+	todo = [[ide, usu, nTweets, contadorComida, contadorRopa, contadorAnimales, contadorTerrorismo, contadorDeporte, contadorSinCalificar]]
+
+Por último, sólo tendremos que añadir el identificativo de esta columna como se hace con las demás:
+
+	writer.writerow(["id_usuario","usuario","total tweets", "comida", "ropa", "animales", "terrorismo", "deporte", "sc"])
+
+#### Escribir los tweets clasificados en sus respectivos archivos
+
+Como en el apartado anterior, en este también debemos modificar la estructura de los parámetros pasados a esta función. Esta función se encuentra en la clase **FuncionesTwitter**.
+
+Y como esta función es bastante simple, bastaría con añadir al final de la misma el trozo de código resaltado, que lo que hace es que, si no tiene ningún tweet esta categoría no crea el archivo, en caso de que si contenga alguno, pasa a crear el fichero y añadir los tweets codificados; Véase para ello el *Cuadro de código A.5.*
+
+	def escribirTweetsClasificados(self, usu, tweetsComida, tweetsRopa, tweetsAnimales, tweetsTerrorismo, tweetsDeporte, tweetsSc):
+		
+		…
+		
+		if len(tweetsDeporte) != 0:
+			todoDeporte = [[binascii.hexlify(tweet)] for tweet in tweetsDeporte]
+			if not os.path.isfile('../datos/tweets/%s_tweets_Deporte.csv' % usu):
+				with open('../datos/tweets/%s_tweets_Deporte.csv' % usu, 'wb') as f:
+					writer = csv.writer(f)
+					writer.writerows(todoDeporte)
+				pass
+
+#### Leer los contadores de cada categoría
+
+Esta función devuelve los contadores de cada categoría, para su posterior estudio y comparativa para poder colorear el nodo de un color u otro. Bastaría con añadir lo que se resalta en esta función. Esta función se encuentra en la clase **FuncionesTwitter**, como se muestra en el *Cuadro de código A.6.*
+
+	def leerContadores(self, usuario):
+		reader = csv.reader(open('../datos/tweets/%s_tweets.csv' % usuario, 'rb'))
+		comida = 0
+		animales = 0
+		ropa = 0
+		terrorismo = 0
+		deporte = 0
+		sinCalificar = 0
+		for index,row in enumerate(reader):
+			comida = row[3]
+			ropa = row[4]
+			animales = row[5]
+			terrorismo = row[6]
+			deporte = row[7]
+			sinCalificar = row[8]
+		
+		return comida, ropa, animales, terrorismo, deporte, sinCalificar
+		
+#### Leer los tweets de la nueva categoría
+
+Esta función devolverá los tweets de la nueva categoría creada ya decodificados para posteriormente poder mostrarlos en la ventana “Categorías”. Habría que crear una nueva función como la que se indica en el *Cuadro de código A.7* que estará en la clase **FuncionesTwitter**.
+
+	def leerTweetsDeporte(self, usu):
+	       
+		usuario = str(usu)
+		deporte = []
+		
+		if path.exists('../datos/tweets/%s_tweets_Deporte.csv' % usuario.lstrip("@")):
+		
+			reader = csv.reader(open('../datos/tweets/%s_tweets_Deporte.csv' % usuario.lstrip("@"), 'rb'))
+		
+		       for index,row in enumerate(reader):
+				add = binascii.unhexlify(row[0])
+				deporte.append(add)
+		
+		return deporte
+
+
+#### Ordenar contadores
+
+Esta es una de las funciones un poco más complicadas de modificar, ya que para la comparativa entre todos los contadores hay que darle más peso a algunas categorías en caso de igualdad. Para que sea más entendible, lo que se hace es poner cómo quedaría la función añadiendo un nuevo contador y resaltando las líneas editadas. Esta función se encuentra en la clase **FuncionesTwitter**, y se indica en el *Cuadro de código A.8*.
+
+	def ordenarContadores(self, usuario):
+	        
+		comida = 0
+		animales = 0
+		ropa = 0
+		terrorismo = 0
+		deporte = 0
+		sinCalificar = 0
+		comida, ropa, animales, terrorismo, deporte, sinCalificar = self.leerContadores(usuario)
+		# Si valor = 0 --> sc, si valor = 1 --> terrorismo, si valor = 2 --> animales, 
+		# si valor = 3 --> comida, si valor = 4 --> Ropa, si valor = 5 --> Deporte
+		valor = 0
+		#Vamos a dar prioridad a las Categorías en este orden: terrorismo - animales – 
+		# comida - ropa - Deporte, en caso de igualdad.
+		if int(comida) == 0 and int(animales) == 0 and int(terrorismo) == 0 and int(ropa) == 0 and int(deporte):
+			valor = 0
+		elif int(terrorismo) >= int(animales):
+			if int(terrorismo) >= int(comida):
+				if int(terrorismo) >= int(ropa):
+					if int(terrorismo) >= int(deporte):
+						valor = 1
+				       else:
+				              valor = 5
+				elif int(ropa) >= int(deporte):
+		                	valor = 4	
+				else:	
+					valor = 5
+			elif int(comida) >= int(ropa):
+				if int(comida) >= int(deporte):
+					valor = 3
+		            	elif int(ropa) >= int(deporte):
+					valor = 4	
+				else:	
+					valor = 5
+					
+		elif int(animales) >= int(comida):
+			if int(animales) >= int(ropa):
+				if int(animales) >= int(deporte):
+					valor = 2
+		            	else:
+					valor = 5
+			elif int(ropa) >= int(deporte):
+				valor = 4	
+			else:	
+				valor = 5
+		        	
+		elif int(comida) >= int(ropa):
+			if int(comida) >= int(deporte):
+				valor = 3
+			else:
+				valor = 5
+		
+		elif  int(ropa) >= int(deporte):
+			valor = 4
+		else: 
+			valor = 5
+		
+		return valor
+
+#### Obtener los tweets de la nueva categoría
+
+Esta función es la encargada de crear la ventana de la categoría con los tweets ya contenidos en ella, es decir, los tweets que componen esta categoría. Para ello añadiremos la nueva función  en la clase **FuncionesTwitter**, como se indica en el *Cuadro de código A.9*.
+
+	def obtenerTweetsDeporte(self, usu):
+	       
+		deporte = self.leerTweetsDeporte(usu)
+		self.categoria = "Relacionados con Deporte: " + str(len(deporte))
+		self.titulo = "Relacionados con Deporte"
+		import creaVentanas
+		self.crear = creaVentanas.CreaVentanas()
+		self.crear.crearVentanaCategoria(self.titulo, self.categoria, len(deporte), deporte)
+
+
+#### Obtener datos
+
+La última función de la clase **FuncionesTwitter** que habría que modificar será obtenerDatos(usuario),  añadiendo lo que este resaltado de las siguiente líneas ya existentes en la función (Véase *Cuadro de código A.10*).
+
+	comida, ropa, animales, terrorismo, deporte, sinCalificar = self.leerContadores(usu)
+		...
+	self.crear.crearVentanaInformacion(nombreUsuario, usu, str(ide), descripcion, localizacion, str(nSeguidores), str(nSeguidos), str(nTweets), str(nFavoritos), fotoUsuario, str(comida), str(animales), str(ropa), str(terrorismo), str(deporte), str(sinCalificar), self.cursor_usuario.protected)
+
+
+#### Crear ventana “Información”
+
+Como se modificó anteriormente, tenemos que cambiar en la función que ha sido llamada el número de parámetros, para que no se den errores. Esta función se encuentra en la clase **CreaVentanas**. Como anteriormente, se dará intensidad a lo cambiado en el *Cuadro de código A.11*.
+
+	def crearVentanaInformacion(self, nombreUsuario, usu, ide, descripcion, localizacion, nSeguidores, nSeguidos, nTweets, nFavoritos, fotoUsuario, comida, animales, ropa, terrorismo, deporte, sinCalificar, privacidad):
+	…
+	self.uiInfo.retranslateUi(self.ventanaInfo, nombreUsuario, usu, ide, descripcion, localizacion, nSeguidores, nSeguidos, nTweets, nFavoritos, fotoUsuario, comida, animales, ropa, terrorismo, deporte,  sinCalificar, privacidad)
+
+#### Cambiar contenido de la ventana “Información”
+
+Obviamente, tendremos que añadir la nueva categoría en nuestra interfaz de información, para ello tendremos que hacerlo en la función  *setupUi(Form)* de la clase **Informacion**.  Lo que hay que modificar y añadir es lo mostrado en el *Cuadro de código A.12.*
+
+	...
+	
+	self.label_16 = QtGui.QLabel(self.scrollAreaWidgetContents)
+	self.label_16.setGeometry(QtCore.QRect(20, 170, 221, 41))
+	font = QtGui.QFont()
+	font.setPointSize(11)
+	font.setBold(True)
+	font.setWeight(75)
+	self.label_16.setFont(font)
+	self.label_16.setObjectName(_fromUtf8("label_16"))
+	
+	self.label_15 = QtGui.QLabel(self.scrollAreaWidgetContents)
+	self.label_15.setGeometry(QtCore.QRect(20, 210, 221, 41))
+	font = QtGui.QFont()
+	font.setPointSize(11)
+	font.setBold(True)
+	font.setWeight(75)
+	self.label_15.setFont(font)
+	self.label_15.setObjectName(_fromUtf8("label_15"))	
+			
+	...	
+	
+	self.rDeporte = QtGui.QLabel(self.scrollAreaWidgetContents)
+	self.rDeporte.setGeometry(QtCore.QRect(270, 180, 211, 17))
+	font = QtGui.QFont()
+	font.setPointSize(11)
+	self.rDeporte.setFont(font)
+	self.rDeporte.setObjectName(_fromUtf8("rDeporte"))
+	
+	self.sCa = QtGui.QLabel(self.scrollAreaWidgetContents)
+	self.sCa.setGeometry(QtCore.QRect(270, 220, 211, 17))
+	font = QtGui.QFont()
+	font.setPointSize(11)
+	self.sCa.setFont(font)
+	self.sCa.setObjectName(_fromUtf8("sCa"))
+		
+	...	
+	
+	self.retranslateUi(Form, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, False)
+	
+	... 
+	
+	self.label_16.mousePressEvent = self.pulsarDeporte
+
+
+#### Crear evento al pulsar sobre “Relacionados con deporte”
+
+Se tendrá que crear el evento que hace disponible que aparezca la ventana “Categorías” con la información de la nueva categoría. Esta función formará parte de la clase **Informacion** y será de la forma indicada en el *Cuadro de código A.13*.
+
+	def pulsarDeporte(self, event):
+	
+		import funcionesTwitter
+		self.t = funcionesTwitter.FuncionesTwitter()
+		usuario = self.alias.text()
+		self.t.obtenerTweetsDeporte(usuario)
+		
+#### Actualizar contenidos de la ventana “Información”
+
+Realmente lo que hacemos con esto es crear la ventana “Información” con los datos pasados anteriormente en la creación de esta misma ventana. Para ello tendremos que actualizar los parámetros que se le pasan a esta función de la clase **Informacion**, añadiendo la nueva categoría y añadiendo también unas comprobaciones dentro de la misma, como se muestra en el *Cuadro de código A.14*.
+
+	def retranslateUi(self, Form, nombre, alias, ide, descripcion, ubicacion, seguidores, siguiendo, tweets, fav, foto, comida, animales, ropa, terrorismo, deporte, Sc, privacidad):
+			
+		...	
+		
+		self.label_16.setText(_translate("Form", "Relacionados con deporte:", None))
+		if deporte == None:
+		self.rDeporte.setText(_translate("Form", "numero", None))
+		else:
+		self.rDeporte.setText(_translate("Form", deporte, None))
+		
+		...
+
+
+#### Cambiar contenido de la ventana “Manejo grafo”
+
+También tenemos contenido en esta ventana relacionado con el añadido de una nueva categoría, ya que tenemos los *checkBox* de cada categoría para mostrar, en caso de que este seleccionado dicha categoría en el Grafo.
+
+Para ello, en la *función setupUi(Form) *de la clase **ManejoGrafo** debemos añadir y modificar lo indicado en el *Cuadro de código A.15*.
+
+	...
+	
+	self.checkBoxDeporte = QtGui.QcheckBox(Form)
+	self.checkBoxDeporte.setEnabled(True)
+	self.checkBoxDeporte.setGeometry(QtCore.QRect(30, 190, 97, 22))
+	self.checkBoxDeporte.setChecked(True)
+	self.checkBoxDeporte.setObjectName(_fromUtf8("checkBoxDeporte"))
+		
+	self.checkBoxSc = QtGui.QCheckBox(Form)
+	self.checkBoxSc.setEnabled(True)
+	self.checkBoxSc.setGeometry(QtCore.QRect(30, 210, 121, 22))
+	self.checkBoxSc.setChecked(True)
+	self.checkBoxSc.setObjectName(_fromUtf8("checkBoxSc"))
+	
+	...
+
+
+#### Actualizar contenidos de la ventana “Manejo grafo”
+
+Realmente lo que hacemos con esto es crear la ventana “Manejo grafo” con los datos que queremos mostrar. Para ello añadiremos a la función *retranslateUi(Form)* de la clase **ManejoGrafo**, lo siguiente:
+
+	self.checkBoxDeporte.setText(_translate("Form", "Deporte", None))
+
+#### Activación/Desactivación del nuevo checkBox
+
+Para mayor concisión de este apartado, sólo haré mención a las funciones que deben añadirse el desbloqueo de este *checkBox*, para poder usarlo y también, cuándo debe bloquearse.
+
+- Añadir en las siguientes funciones de la clase ManejoGrafo la siguiente línea: `self.checkBoxDeporte.setEnabled(True)`, para que se desbloquee este *checkBox*.	
+
+	- parar()
+	- errorNoCategorias()
+
+- Añadir en las siguientes funciones de la clase ManejoGrafo la siguiente línea: `self.checkBoxDeporte.setEnabled(False)`, para que se bloquee este *checkBox*.
+
+	- bloquearBotonesTerminar().
+	- inicio() --> Además, en esta función debemos añadir o modificar también las líneas del Cuadro de código A.16.
+
+			...
+	
+			checkDeporte = self.checkBoxDeporte.isChecked()
+			
+			...
+			
+			g.dibujar(checkAnimales, checkRopa, checkTerrorismo, checkComida, checkDeporte, checkSc, self)
+
+#### Dibujar Grafo
+
+En esta función de la clase **Grafo** tendremos que añadir el parámetro nuevo del apartado anterior (**checkDeporte**). Y realizar unas pequeñas modificaciones que se indican en el *Cuadro de código A.17*.
+
+	def dibujar(self, checkAnimales, checkRopa, checkTerrorismo, checkComida, checkDeporte, checkSc, manejoGrafo):
+		
+		...
+		
+		try:
+			if checkAnimales and checkRopa and checkTerrorismo and checkComida and checkDeporte and checkSc:	
+				
+				...
+			
+			elif checkAnimales or checkRopa or checkTerrorismo or checkComida or checkDeporte or checkSc:
+				
+				while inicio:
+	                    			
+					plt.clf()
+				
+					if contador == 0:
+	          				
+						self.leerDocumentoAlgunasCategorias(G, row_count, nodoRaiz, checkAnimales, checkRopa, checkTerrorismo, checkComida, checkDeporte, checkSc)
+	
+	                    	else:
+	
+	                        		if row_count_nodo_raiz != 0:
+                      	
+							self.leerDocumentoAlgunasCategorias(G, row_count, segundoNivel, checkAnimales, checkRopa, checkTerrorismo, checkComida, checkDeporte,  checkSc)
+                    
+				...
+
+			else:
+				...
+
+
+#### Leer documento algunas categorías
+
+Si se observan los cambios realizados en el apartado anterior, veremos que se ha modificado una función de esta misma clase (**Grafo**), añadiéndole un parámetro nuevo. Las modificaciones que se tienen que tener en cuenta son simples y se detallan en el *Cuadro de código A.18*.
+
+	def leerDocumentoAlgunasCategorias(self, G, row_count, usu, checkAnimales, checkRopa, checkTerrorismo, checkComida, checkDeporte, checkSc):
+	
+		...
+		
+		else:
+			for indice, columna in enumerate(reader):
+			            	if indice >= numeroAlgunasCategorias:
+							
+							...
+			
+							if checkDeporte:
+			                       		if valor == 5:
+									G.add_edge(columna[0],columna[1])
+			                            		entro = True
+			
+							...
+
+#### Colorear nodo “Nueva categoría”
+
+Como se ha insertado una nueva categoría, debe aparecer un nuevo color en nuestro grafo de relaciones, para usuarios que cumplan los requisitos del mismo. Para ello tenemos que incluir en la función *colorearNodos(G, color_map)* de la clase **Grafo** lo contenido en el *Cuadro de código A.19*.
+
+	if valor == 0:
+		color_map.append('gray')
+	elif valor == 1:
+		color_map.append('red')
+	elif valor == 2:
+		color_map.append('green')
+	elif valor == 3:
+		color_map.append('blue')
+	elif valor == 4:
+		color_map.append('yellow')
+	elif valor == 5:
+	      color_map.append('pink')
+
+<br>
+<br>
+
+## Apéndice B
+
+# Manual de Código
+
+<br>
+
+Este apéndice tiene como fin la explicación de cada clase y los contenidos de las mismas, como son variables y funciones o métodos. Este archivo se encuentra [aquí]([https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/master/doc/CategorizacionDeInformacionEnRedesSocialesAPI.pdf](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/master/doc/CategorizacionDeInformacionEnRedesSocialesAPI.pdf)).
