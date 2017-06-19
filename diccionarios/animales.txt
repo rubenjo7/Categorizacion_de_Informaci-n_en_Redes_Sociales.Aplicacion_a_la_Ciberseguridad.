@@ -1,9 +1,0 @@
-Perro
-Gato
-Hamster 
-Loro
-Canario 
-Periquito
-Cobaya
-Tortuga
-Cochino
