@@ -658,4 +658,4 @@ Como se ha insertado una nueva categoría, debe aparecer un nuevo color en nuest
 
 <br>
 
-Este apéndice tiene como fin la explicación de cada clase y los contenidos de las mismas, como son variables y funciones o métodos. Este archivo se encuentra [aquí]([https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/master/doc/CategorizacionDeInformacionEnRedesSocialesAPI.pdf](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/master/doc/CategorizacionDeInformacionEnRedesSocialesAPI.pdf)).
+Este apéndice tiene como fin la explicación de cada clase y los contenidos de las mismas, como son variables y funciones o métodos. Este archivo se encuentra [aquí](https://github.com/rubenjo7/Categorizacion_de_Informacion_en_Redes_Sociales.Aplicacion_a_la_Ciberseguridad/blob/master/doc/CategorizacionDeInformacionEnRedesSocialesAPI.pdf).
